@@ -26,7 +26,7 @@ public class Dijkstra
             length[i] = W[0][i];
         }
         int count = 0;
-        while (count < n)
+        while (count < n-1)
         {
             int min = 999;
             count++;
