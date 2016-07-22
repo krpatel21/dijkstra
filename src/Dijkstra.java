@@ -1,3 +1,7 @@
-public class Dijkstra {
-    public int something;
+public class Dijkstra
+{
+    public void dij()
+    {
+
+    }
 }
