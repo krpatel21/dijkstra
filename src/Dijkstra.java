@@ -15,6 +15,7 @@ public class Dijkstra
 
     public static void dij(int n, int w[][])
     {
+        int totalLength = 0;
         int vnear = 0;
         Edge e;
         int[] touch = new int[n];
@@ -25,6 +26,7 @@ public class Dijkstra
             touch[i] = 0;
             length[i] = W[0][i];
         }
+
         int count = 0;
         while (count < n-1)
         {
@@ -39,6 +41,8 @@ public class Dijkstra
                 }
             }
 
+            totalLength += w[touch[vnear]][vnear];
+
             e = new Edge(touch[vnear], vnear);
             f.add(e);
 
@@ -52,6 +56,8 @@ public class Dijkstra
             }
             length[vnear] = -1;
         }
+
+        System.out.println(totalLength);
     }
 
     public static void main(String[] args)
