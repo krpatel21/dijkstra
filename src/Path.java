@@ -1,30 +1,23 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
-public class Dijkstra
+public class Path
 {
-    public static final int[][] W = {
-            {0, 7, 4, 6, 1},
-            {999, 0, 999, 999, 999},
-            {999, 2, 0, 5, 999},
-            {999, 3, 999, 0, 999},
-            {999, 999, 999, 1, 0}
-    };
+    public static List<EdgeItemType> f = new ArrayList<>();
+    public static int totalLength = 0;
 
-    public static List<Edge> f = new ArrayList<>();
 
     public static void dij(int n, int w[][])
     {
-        int totalLength = 0;
         int vnear = 0;
-        Edge e;
+        EdgeItemType e;
         int[] touch = new int[n];
         int[] length = new int[n];
 
         for (int i = 1; i < n; i++)
         {
             touch[i] = 0;
-            length[i] = W[0][i];
+            length[i] = w[0][i];
         }
 
         int count = 0;
@@ -43,27 +36,18 @@ public class Dijkstra
 
             totalLength += w[touch[vnear]][vnear];
 
-            e = new Edge(touch[vnear], vnear);
+            e = new EdgeItemType(touch[vnear], vnear);
             f.add(e);
 
             for (int i = 1; i < n; i++)
             {
-                if (length[vnear] + W[vnear][i] < length[i])
+                if (length[vnear] + w[vnear][i] < length[i])
                 {
-                    length[i] = length[vnear] + W[vnear][i];
+                    length[i] = length[vnear] + w[vnear][i];
                     touch[i] = vnear;
                 }
             }
             length[vnear] = -1;
         }
-
-        System.out.println(totalLength);
-    }
-
-    public static void main(String[] args)
-    {
-        dij(5, W);
-
-        System.out.println(f);
     }
 }

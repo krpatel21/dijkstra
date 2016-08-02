@@ -1,9 +1,9 @@
-public class Edge
+public class EdgeItemType
 {
     private int vertexa;
     private int vertexb;
 
-    public Edge(int vertexa, int vertexb)
+    public EdgeItemType(int vertexa, int vertexb)
     {
         this.vertexa = vertexa;
         this.vertexb = vertexb;
