@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class Path
 {
-    public static List<EdgeItemType> f = new ArrayList<>();
-    public static int totalLength = 0;
+    public List<EdgeItemType> f = new ArrayList<>();
+    public int totalLength = 0;
 
 
-    public static void dij(int n, int w[][])
+    public void dij(int n, int w[][])
     {
         int vnear = 0;
         EdgeItemType e;
